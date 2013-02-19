@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<ruleset name="BeAgile">
+ <description>The BeAgile coding standard builds on the Squiz coding standard. Currently used for BeAgile development.</description>
+
+ <exclude-pattern>*/wp-*</exclude-pattern>
+ <exclude-pattern>*/images/*</exclude-pattern>
+ <exclude-pattern>*/files/*</exclude-pattern>
+ <exclude-pattern>*/code_samples/*</exclude-pattern>
+ <exclude-pattern>*/.metadata/*</exclude-pattern>
+ <exclude-pattern>*/stocklogger/framework/*</exclude-pattern>
+ <exclude-pattern>*/stocklogger/system/*</exclude-pattern>
+ <exclude-pattern>*/stocklogger/tasks/*</exclude-pattern>
+ <exclude-pattern>*/stocklogger/user_guide/*</exclude-pattern>
+ <exclude-pattern>*/stocklogger/application/cache/*</exclude-pattern>
+ <exclude-pattern>*/stocklogger/application/config/*</exclude-pattern>
+ <exclude-pattern>*/stocklogger/application/core/*</exclude-pattern>
+ <exclude-pattern>/stocklogger/application/errors/*</exclude-pattern>
+ <exclude-pattern>*/stocklogger/application/third_party/*</exclude-pattern>
+ <exclude-pattern>*/stocklogger/application/logs/*</exclude-pattern>
+
+ <!-- Include the whole Squiz standard except FunctionComment, which we override -->
+ <rule ref="Squiz">
+ 	<exclude name="Squiz.Commenting.FileComment"/>
+	<exclude name="Squiz.Commenting.FunctionComment"/>
+	<exclude name="Squiz.Commenting.VariableComment"/>
+	<exclude name="Squiz.NamingConventions.ValidVariableName"/>
+	<exclude name="Squiz.NamingConventions.ConstantCase.Found"/>
+	<exclude name="Squiz.Commenting.ClosingDeclarationComment.Missing"/>
+	<exclude name="Squiz.WhiteSpace.FunctionSpacing"/>
+	<exclude name="Squiz.WhiteSpace.FunctionClosingBraceSpace"/>
+	<exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine"/>
+	<exclude name="Squiz.NamingConventions.ValidFunctionName.PrivateNoUnderscore"/>
+	<exclude name="Squiz.Files.FileExtension.ClassFound"/>
+	<exclude name="Squiz.ControlStructures.ControlSignature"/>
+	<exclude name="Squiz.WhiteSpace.ControlStructureSpacing.SpacingBeforeOpen"/>
+	<exclude name="Squiz.Operators.ComparisonOperatorUsage.NotAllowed"/>
+	
+	<exclude name="Generic.Files.LineEndings.InvalidEOLChar"/>
+	<exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+	<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect"/>
+	<exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie.BraceOnNewLine"/>
+	<exclude name="Generic.PHP.UpperCaseConstant.Found"/>
+	 
+	<exclude name="PEAR.ControlStructures.MultiLineCondition.NewlineBeforeOpenBrace"/>
+ </rule>
+
+</ruleset>
