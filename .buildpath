@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildpath>
+	<buildpathentry kind="src" path="BeAgile/Sniffs/Channels"/>
+	<buildpathentry kind="src" path="BeAgile/Sniffs/Commenting"/>
+	<buildpathentry kind="src" path="BeAgile/Sniffs/ControlStructures"/>
+	<buildpathentry kind="src" path="BeAgile/Sniffs/CSS"/>
+	<buildpathentry kind="src" path="BeAgile/Sniffs/Debug"/>
+	<buildpathentry kind="src" path="BeAgile/Sniffs/NamingConventions"/>
+	<buildpathentry kind="src" path="BeAgile/Sniffs/Objects"/>
+	<buildpathentry kind="src" path="BeAgile/Sniffs/PHP"/>
+	<buildpathentry kind="src" path="BeAgile/Sniffs/Strings"/>
+	<buildpathentry kind="src" path="BeAgile/Sniffs/WhiteSpace"/>
+	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+</buildpath>

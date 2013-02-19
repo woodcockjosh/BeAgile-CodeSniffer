@@ -55,7 +55,15 @@ class BeAgile_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Snif
                                    'JS',
                                   );
 
-    public $licenseURL = "http://beagile.biz";
+    public $licenseURL  = "http://beagile.biz";
+
+    public $licenseName = 'Contractual License Program';
+
+    public $author      = "Josh Woodcock <joshwoodcock@beagile.biz>";
+
+    public $copyright     = "Be Agile, LLC";
+
+    public $package     = "BeAgile";
 
     /**
      * The header comment parser for the current file.
@@ -443,15 +451,15 @@ class BeAgile_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Snif
                           trim($newName, '_'),
                          );
                 $this->currentFile->addError($error, $errorPos, 'IncorrectPackage', $data);
-            } else if (strpos($content, 'BeAgile') === 0) {
-                // Package name must not start with BeAgile.
+            } else if (strpos($content, $this->package) === 0) {
+                // Package name must not start with [Package Name].
                 $newName = substr($content, 5);
                 $error   = 'Package name "%s" is not valid; consider "%s" instead';
                 $data    = array(
                             $content,
                             $newName,
                            );
-                $this->currentFile->addError($error, $errorPos, 'BeAgilePackage', $data);
+                $this->currentFile->addError($error, $errorPos, $this->package . 'Package', $data);
             }
         }
 
@@ -510,8 +518,8 @@ class BeAgile_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Snif
             if (empty($content) === true) {
                 $error = 'Content missing for @author tag in file comment';
                 $this->currentFile->addError($error, $errorPos, 'MissingAuthor');
-            } else if ($content !== 'Josh Woodcock <joshwoodcock@beagile.biz>') {
-                $error = 'Expected "Josh Woodcock <joshwoodcock@beagile.biz>" for author tag';
+            } else if ($content !== $this->author) {
+                $error = 'Expected "' . $this->author . '" for author tag';
                 $this->currentFile->addError($error, $errorPos, 'IncorrectAuthor');
             }
         }
@@ -520,7 +528,7 @@ class BeAgile_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Snif
 
 
     /**
-     * Copyright tag must be in the form '2006-YYYY Squiz Pty Ltd (ABN 77 084 670 600)'.
+     * Copyright tag must be in the form.....
      *
      * @param int $errorPos The line number where the error occurs.
      *
@@ -537,8 +545,8 @@ class BeAgile_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Snif
                 $error = 'Content missing for @copyright tag in file comment';
                 $this->currentFile->addError($error, $errorPos, 'MissingCopyright');
 
-            } else if (preg_match('/^([0-9]{4})(-[0-9]{4})? (Be Agile, LLC)$/', $content) === 0) {
-                $error = 'Expected "xxxx-xxxx Be Agile, LLC" for copyright declaration';
+            } else if (preg_match('/^([0-9]{4})(-[0-9]{4})? (' . $this->copyright . ')$/', $content) === 0) {
+                $error = 'Expected "xxxx-xxxx ' . $this->copyright . '" for copyright declaration';
                 $this->currentFile->addError($error, $errorPos, 'IncorrectCopyright');
             }
         }
@@ -576,8 +584,8 @@ class BeAgile_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Snif
                 if (empty($content) === true) {
                     $error = 'License name missing for @license tag in file comment';
                     $this->currentFile->addError($error, $errorPos, 'MissingLinceseName');
-                } else if ($content !== 'Contractual License Program') {
-                    $error = 'Expected "Contractual License Program" for license name';
+                } else if ($content !== $this->licenseName) {
+                    $error = 'Expected ' . $this->licenseName . ' for license name';
                     $this->currentFile->addError($error, $errorPos, 'IncorrectLicenseName');
                 }
             }//end if
